@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -525,6 +526,20 @@
         .key-points li {
             margin-bottom: 0.5rem;
         }
+        /* Visitor Counter Styles */
+        #freeCounter {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2rem; /* Slightly larger text */
+        }
+        #freeCounter a {
+            color: #FF8200; /* Match the accent color */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #freeCounter a:hover {
+            text-decoration: underline;
+        }
         @media (max-width: 1024px) {
             .container {
                 flex-direction: column;
@@ -577,6 +592,9 @@
                 font-size: 0.9rem;
                 padding: 8px 12px;
             }
+            #freeCounter {
+                font-size: 1rem; /* Adjust size for smaller screens */
+            }
         }
         @media (max-width: 480px) {
             .nav-button {
@@ -598,6 +616,9 @@
                 font-size: 1.1rem;
                 margin-top: 45px;
                 padding: 0.5rem;
+            }
+            #freeCounter {
+                font-size: 0.9rem; /* Further adjust for very small screens */
             }
         }
     </style>
@@ -788,7 +809,7 @@
                             <h4>Reference Citation (Harvard Style)</h4>
                             <p>When citing a AI-generated image in your reference list, use the following format:</p>
                             <div class="citation-example">
-                                Google Gemini (2025) <i>AI-generated image representing the theme "Diverse Knowledge Systems in Decolonial Education"</i> [Digital image]. Available at:       https://github.com/oeybers-cpu/all_125_assignment2_a/blob/main/Gemini_Generated_Image_oda57xoda57xoda5.png?raw=true (Accessed: 30 August 2025).
+                                Google Gemini (2025) <i>AI-generated image representing the theme "Diverse Knowledge Systems in Decolonial Education"</i> [Digital image]. Available at:         https://github.com/oeybers-cpu/all_125_assignment2_a/blob/main/Gemini_Generated_Image_oda57xoda57xoda5.png?raw=true (Accessed: 30 August 2025).
                             </div>
                         </div>
                         <div class="bg-blue-50 p-4 rounded-lg">
@@ -812,6 +833,14 @@
     </div>
     <footer>
         <p>Academic Literacy Assignment 2 - Reading Reflection on Decoloniality</p>
+        <!-- Embedded Visitor Counter -->
+        <div id="freeCounter">
+            <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=98eaca31612f4331b0b8acd08eb43e530eb44597'></script>
+            <script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/1386787/t/5"></script>
+            <br>
+            <a href='https://www.free-counters.org/'>... by Free-Counters.org</a>
+        </div>
+        <!-- End of Visitor Counter -->
     </footer>
     <script>
         let currentTab = 'session-outcomes';
