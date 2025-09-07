@@ -616,7 +616,8 @@
                     <span>📌</span>
                     <span>Session Outcomes</span>
                 </a>
-                <a href="#" class="nav-button" onclick="showTab('instructions'); return false;">
+                <!-- Updated Instructions Tab Link -->
+                <a href="https://oeybers-cpu.github.io/all125_wk7_s1-instructions-a-2/" class="nav-button" target="_blank">
                     <span>📖</span>
                     <span>Instructions</span>
                 </a>
@@ -663,69 +664,7 @@
                     </div>
                 </div>
             </div>
-            <div id="instructions" class="tab-content">
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">Assignment Instructions</h2>
-                        <p class="card-description">Complete overview of Assignment 2: Reading Reflection requirements</p>
-                    </div>
-                    <div class="card-content space-y-6">
-                        <div class="grid grid-cols-2">
-                            <div>
-                                <h3 class="text-lg font-semibold text-gray-800" style="margin-bottom: 0.75rem;">Assignment Overview</h3>
-                                <ul class="space-y-2">
-                                    <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
-                                        <span class="checkmark">✓</span>
-                                        <span>Four paragraph essay (maximum 800 words)</span>
-                                    </li>
-                                    <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
-                                        <span class="checkmark">✓</span>
-                                        <span>GenAI image and translanguaging component</span>
-                                    </li>
-                                    <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
-                                        <span class="checkmark">✓</span>
-                                        <span>Due: Monday, 22 September</span>
-                                    </li>
-                                    <li style="display: flex; align-items: flex-start; gap: 0.5rem;">
-                                        <span class="checkmark">✓</span>
-                                        <span>Weight: 30 marks</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold text-gray-800" style="margin-bottom: 0.75rem;">Topic Areas</h3>
-                                <div class="space-y-2">
-                                    <span class="topic-badge">Social Inequality and Community Development</span>
-                                    <span class="topic-badge">Gender, Identity and Social Change</span>
-                                    <span class="topic-badge">Mental Health and Youth Wellbeing</span>
-                                    <span class="topic-badge">Decoloniality, Cultural Heritage, Ancestry and Identity</span>
-                                    <span class="topic-badge">Crime, Corruption and Social Trust</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-blue-50 p-4 rounded-lg">
-                            <h4 class="font-semibold text-blue-700" style="margin-bottom: 0.5rem;">Assignment Components</h4>
-                            <div class="grid grid-cols-2">
-                                <div>
-                                    <h5 class="font-medium text-blue-700">Part A: Essay</h5>
-                                    <p style="font-size: 0.875rem; color: #00205B;">Analyse author's argument and reflect from personal/academic perspective</p>
-                                </div>
-                                <div>
-                                    <h5 class="font-medium text-blue-700">Part B: GenAI Image</h5>
-                                    <p style="font-size: 0.875rem; color: #00205B;">Generate image capturing theme or personal response with translanguaging</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="article-link-box">
-                            <h4>Full Assignment Details:</h4>
-                            <a href="https://clickup.up.ac.za/ultra/courses/_181354_1/outline/assessment/test/_4563121_1?courseId=_181354_1&gradeitemView=details" class="article-link-button" target="_blank">
-                                <span class="icon">📰</span>
-                                <span>ClickUP Assignment Instructions</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Instructions Tab Content Removed -->
             <div id="decoloniality-concept" class="tab-content">
                 <div class="card">
                     <div class="card-header">
@@ -738,7 +677,7 @@
                             <p class="text-gray-600" style="margin-bottom: 1rem;">
                                 Based on "Decolonising Education in Africa: What does it mean" by Ndlovu-Gatsheni (2022), these are the key principles of decoloniality:
                             </p>
-                            
+
                             <div class="key-points">
                                 <h4>Key Principles of Decoloniality:</h4>
                                 <ul>
@@ -749,7 +688,7 @@
                                     <li>It focuses on justice rather than vengeance, aiming to build humane societies</li>
                                 </ul>
                             </div>
-                            
+
                             <div class="key-points">
                                 <h4>Three Forms of Coloniality:</h4>
                                 <ul>
@@ -760,7 +699,7 @@
                                     <li>Decolonisation requires dismantling these structures in education and society</li>
                                 </ul>
                             </div>
-                            
+
                             <div class="article-link-box">
                                 <h4>Return to Main Assignment Page:</h4>
                                 <a href="#" class="article-link-button" onclick="showTab('session-outcomes'); return false;">
@@ -920,12 +859,21 @@
     </footer>
     <script>
         let currentTab = 'session-outcomes';
-        const tabs = ['session-outcomes', 'instructions', 'decoloniality-concept', 'critical-reading', 'session-reflection', 'genai-integration'];
+        const tabs = ['session-outcomes', 'decoloniality-concept', 'critical-reading', 'session-reflection', 'genai-integration']; // Removed 'instructions' as it's now an external link
         function showTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
             document.querySelectorAll('.nav-button').forEach(button => button.classList.remove('active'));
             document.getElementById(tabName).classList.add('active');
-            const activeButton = [...document.querySelectorAll('.nav-button')].find(btn => btn.textContent.includes(tabName.replace('-', ' ')));
+            // Find the corresponding nav button and activate it
+            const activeButton = [...document.querySelectorAll('.nav-button')].find(btn => {
+                // For external links, check the href
+                if (btn.tagName === 'A' && btn.getAttribute('href') && btn.getAttribute('href').includes('instructions')) {
+                    return tabName === 'instructions';
+                }
+                // For internal tabs, check the text content
+                return btn.textContent.includes(tabName.replace('-', ' '));
+            });
+
             if (activeButton) activeButton.classList.add('active');
             currentTab = tabName;
             document.querySelector('.main-content').scrollTo(0, 0);
@@ -948,27 +896,19 @@
                 alert("No responses to copy! This section doesn't have text areas for responses.");
                 return;
             }
-            let allResponses = "Academic Literacy Assignment 2: Reading Reflection on Decoloniality
-";
-            allResponses += "===============================================
-";
-            allResponses += `Section: ${document.querySelector(`#${tabId} .card-title`).textContent}
-`;
-            allResponses += `Date: ${new Date().toLocaleDateString()}
-`;
+            let allResponses = "Academic Literacy Assignment 2: Reading Reflection on Decoloniality\n";
+            allResponses += "===============================================\n";
+            allResponses += `Section: ${document.querySelector(`#${tabId} .card-title`).textContent}\n`;
+            allResponses += `Date: ${new Date().toLocaleDateString()}\n`;
             textareas.forEach((textarea, index) => {
                 const question = textarea.closest('.question-card').querySelector('.question-title').textContent;
                 const response = textarea.value || "(No response)";
-                allResponses += `Question ${index + 1}: ${question}
-`;
-                allResponses += `Response: ${response}
-`;
-                allResponses += "----------------------------------------
-";
+                allResponses += `Question ${index + 1}: ${question}\n`;
+                allResponses += `Response: ${response}\n`;
+                allResponses += "----------------------------------------\n";
             });
             navigator.clipboard.writeText(allResponses).then(() => {
-                alert("All responses copied to clipboard!
-You can now paste them into a document or email.");
+                alert("All responses copied to clipboard!\nYou can now paste them into a document or email.");
             }).catch(err => {
                 console.error('Copy failed:', err);
                 alert("Copy failed. Please try again or manually select and copy your responses.");
@@ -980,26 +920,18 @@ You can now paste them into a document or email.");
                 alert("No responses to save! Please enter your responses before saving.");
                 return;
             }
-            let allResponses = "Academic Literacy Assignment 2: Reading Reflection on Decoloniality
-";
-            allResponses += "===============================================
-";
-            allResponses += `Section: ${document.querySelector(`#${tabId} .card-title`).textContent}
-`;
-            allResponses += `Date: ${new Date().toLocaleDateString()}
-`;
+            let allResponses = "Academic Literacy Assignment 2: Reading Reflection on Decoloniality\n";
+            allResponses += "===============================================\n";
+            allResponses += `Section: ${document.querySelector(`#${tabId} .card-title`).textContent}\n`;
+            allResponses += `Date: ${new Date().toLocaleDateString()}\n`;
             textareas.forEach((textarea, index) => {
                 const question = textarea.closest('.question-card').querySelector('.question-title').textContent;
                 const response = textarea.value || "(No response)";
-                allResponses += `Question ${index + 1}: ${question}
-`;
-                allResponses += `Response: ${response}
-`;
-                allResponses += "----------------------------------------
-";
+                allResponses += `Question ${index + 1}: ${question}\n`;
+                allResponses += `Response: ${response}\n`;
+                allResponses += "----------------------------------------\n";
             });
-            allResponses += "
-This document was generated from the Academic Literacy Assignment 2 web tool.";
+            allResponses += "\nThis document was generated from the Academic Literacy Assignment 2 web tool.";
             const blob = new Blob([allResponses], { type: 'text/plain' });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
@@ -1010,8 +942,7 @@ This document was generated from the Academic Literacy Assignment 2 web tool.";
             link.click();
             URL.revokeObjectURL(link.href);
             document.body.removeChild(link);
-            alert(`Responses saved as ${link.download}!
-Check your Downloads folder.`);
+            alert(`Responses saved as ${link.download}!\nCheck your Downloads folder.`);
         }
         function emailResponses(tabId) {
             const textareas = document.querySelectorAll(`#${tabId} .textarea`);
@@ -1019,26 +950,18 @@ Check your Downloads folder.`);
                 alert("No responses to email! Please enter your responses before emailing.");
                 return;
             }
-            let emailBody = "Academic Literacy Assignment 2: Reading Reflection on Decoloniality
-";
-            emailBody += "===============================================
-";
-            emailBody += `Section: ${document.querySelector(`#${tabId} .card-title`).textContent}
-`;
-            emailBody += `Date: ${new Date().toLocaleDateString()}
-";
+            let emailBody = "Academic Literacy Assignment 2: Reading Reflection on Decoloniality\n";
+            emailBody += "===============================================\n";
+            emailBody += `Section: ${document.querySelector(`#${tabId} .card-title`).textContent}\n`;
+            emailBody += `Date: ${new Date().toLocaleDateString()}\n";
             textareas.forEach((textarea, index) => {
                 const question = textarea.closest('.question-card').querySelector('.question-title').textContent;
                 const response = textarea.value || "(No response)";
-                emailBody += `Question ${index + 1}: ${question}
-`;
-                emailBody += `Response: ${response}
-`;
-                emailBody += "----------------------------------------
-";
+                emailBody += `Question ${index + 1}: ${question}\n`;
+                emailBody += `Response: ${response}\n`;
+                emailBody += "----------------------------------------\n";
             });
-            emailBody += "
-This email was generated from the Academic Literacy Assignment 2 web tool.";
+            emailBody += "\nThis email was generated from the Academic Literacy Assignment 2 web tool.";
             const mailtoBody = encodeURIComponent(emailBody);
             const subject = "My Academic Literacy Assignment 2 Responses on Decoloniality";
             const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${mailtoBody}`;
@@ -1050,4 +973,3 @@ This email was generated from the Academic Literacy Assignment 2 web tool.";
     </script>
 </body>
 </html>
-- All other navigation functionality remains intact
