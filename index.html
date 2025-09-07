@@ -574,7 +574,7 @@
                 margin-top: 50px;
             }
             .home-btn, .session-btn {
-                font-size: 0.8rem;
+                font-size: 0.9rem;
                 padding: 8px 12px;
             }
         }
@@ -605,7 +605,7 @@
 <body>
     <div class="button-container">
         <div class="session-btn">ALL 125_Session 1_Week 7</div>
-        <a href="https://oeybers-cpu.github.io/a_lit_models/  " class="home-btn">Academic Literacy Home</a>
+        <a href="https://oeybers-cpu.github.io/a_lit_models/" class="home-btn">Academic Literacy Home</a>
     </div>
     <h1 class="page-title">Assignment 2: Reading Reflection - Introduction to Decoloniality</h1>
     <div class="container">
@@ -617,7 +617,7 @@
                     <span>Session Outcomes</span>
                 </a>
                 <!-- Updated Instructions Tab Link -->
-                <a href="https://oeybers-cpu.github.io/all125_wk7_s1-instructions-a-2/  " class="nav-button" target="_blank">
+                <a href="https://oeybers-cpu.github.io/all125_wk7_s1-instructions-a-2/" class="nav-button" target="_blank">
                     <span>📖</span>
                     <span>Instructions</span>
                 </a>
@@ -626,7 +626,7 @@
                     <span>Decoloniality Concept</span>
                 </a>
                 <!-- Updated Critical Reading Tab Link -->
-                <a href="https://oeybers-cpu.github.io/all125_wk7_s1/  " class="nav-button" target="_blank">
+                <a href="https://oeybers-cpu.github.io/all125_wk7_s1/" class="nav-button" target="_blank">
                     <span>🔍</span>
                     <span>Critical Reading</span>
                 </a>
@@ -636,10 +636,12 @@
                     <span>Session Reflection</span>
                 </a>
                 <!-- END CHANGE -->
-                <a href="#" class="nav-button" onclick="showTab('genai-integration'); return false;">
+                 <!-- BEGIN CHANGE: Updated GenAI Integration Link -->
+                <a href="https://oeybers-cpu.github.io/all125_s1_w7_genAI-reflect/" class="nav-button" target="_blank">
                     <span>🤖</span>
                     <span>GenAI Integration</span>
                 </a>
+                <!-- END CHANGE -->
             </div>
         </div>
         <div class="main-content">
@@ -758,6 +760,8 @@
             </div>
             -->
             <!-- END CHANGE -->
+            <!-- BEGIN CHANGE: Removed the internal 'genai-integration' tab content -->
+            <!--
             <div id="genai-integration" class="tab-content">
                 <div class="card">
                     <div class="card-header">
@@ -781,7 +785,7 @@
                             <h4>Reference Citation (Harvard Style)</h4>
                             <p>When citing a AI-generated image in your reference list, use the following format:</p>
                             <div class="citation-example">
-                                Google Gemini (2025) <i>AI-generated image representing the theme "Diverse Knowledge Systems in Decolonial Education"</i> [Digital image]. Available at:   https://github.com/oeybers-cpu/all_125_assignment2_a/blob/main/Gemini_Generated_Image_oda57xoda57xoda5.png?raw=true (Accessed: 30 August 2025).
+                                Google Gemini (2025) <i>AI-generated image representing the theme "Diverse Knowledge Systems in Decolonial Education"</i> [Digital image]. Available at:     https://github.com/oeybers-cpu/all_125_assignment2_a/blob/main/Gemini_Generated_Image_oda57xoda57xoda5.png?raw=true (Accessed: 30 August 2025).
                             </div>
                         </div>
                         <div class="bg-blue-50 p-4 rounded-lg">
@@ -791,6 +795,8 @@
                     </div>
                 </div>
             </div>
+            -->
+            <!-- END CHANGE -->
             <div class="navigation-buttons">
                 <button class="button button-outline" onclick="previousTab()">
                     <span>← Previous</span>
@@ -806,8 +812,8 @@
     </footer>
     <script>
         let currentTab = 'session-outcomes';
-        // BEGIN CHANGE: Updated tabs array - removed 'session-reflection' as it's now an external link
-        const tabs = ['session-outcomes', 'decoloniality-concept', 'genai-integration'];
+        // BEGIN CHANGE: Updated tabs array - removed 'session-reflection' and 'genai-integration' as they are now external links
+        const tabs = ['session-outcomes', 'decoloniality-concept'];
         // END CHANGE
         function showTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
@@ -826,14 +832,14 @@
                 if (tabName === 'decoloniality-concept' && btn.textContent.includes('Decoloniality Concept')) {
                     return true;
                 }
-                // BEGIN CHANGE: Removed check for 'session-reflection'
+                // BEGIN CHANGE: Removed check for 'session-reflection' and 'genai-integration'
                 // if (tabName === 'session-reflection' && btn.textContent.includes('Session Reflection')) {
                 //     return true;
                 // }
+                // if (tabName === 'genai-integration' && btn.textContent.includes('GenAI Integration')) {
+                //     return true;
+                // }
                 // END CHANGE
-                if (tabName === 'genai-integration' && btn.textContent.includes('GenAI Integration')) {
-                    return true;
-                }
                 return false;
             });
 
