@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            padding-top: 20px; /* Added padding to accommodate the fixed buttons */
+            padding-top: 20px;
         }
         .container {
             display: flex;
@@ -28,7 +28,6 @@
             gap: 1.5rem;
             flex: 1;
         }
-        /* Left Navigation Column */
         .left-column {
             width: 250px;
             padding: 1rem;
@@ -76,7 +75,6 @@
             color: white;
             font-weight: bold;
         }
-        /* Button Container for perfect alignment */
         .button-container {
             position: fixed;
             top: 20px;
@@ -86,12 +84,11 @@
             justify-content: space-between;
             padding: 0 20px;
             z-index: 1000;
-            pointer-events: none; /* Allows clicks to pass through to buttons */
+            pointer-events: none;
         }
         .button-container > * {
-            pointer-events: auto; /* Re-enable clicks on buttons */
+            pointer-events: auto;
         }
-        /* NEW: Enhanced Glowing Session Button - Fixed at Left */
         .session-btn {
             padding: 12px 24px;
             border: none;
@@ -157,7 +154,6 @@
             font-weight: bold;
             transform: translateY(0);
         }
-        /* Enhanced Glowing Home Button - Fixed at Right */
         .home-btn {
             padding: 12px 24px;
             border: none;
@@ -218,7 +214,6 @@
             font-weight: bold;
             transform: translateY(0);
         }
-        /* Main Content Area - Removed header styles */
         .main-content {
             flex: 1;
             background: white;
@@ -228,7 +223,6 @@
             display: flex;
             flex-direction: column;
         }
-        /* Removed .header styles */
         .tab-content {
             display: none;
             padding: 2rem;
@@ -427,7 +421,6 @@
         .outcomes-list li:nth-child(4) {
             border-left-color: #8b5cf6;
         }
-        /* GenAI Image Styles */
         .genai-image {
             max-width: 35%;
             height: auto;
@@ -475,7 +468,6 @@
             border: 1px solid #d1d5db;
             overflow-x: auto;
         }
-        /* Footer Styles */
         footer {
             text-align: center;
             padding: 1.5rem;
@@ -484,11 +476,9 @@
             margin-top: auto;
             width: 100%;
         }
-        /* REMOVED: Counter container styles */
-        /* Page Title Styling (to replace the removed header) */
         .page-title {
             text-align: center;
-            margin: 70px 0 2rem 0; /* Added top margin to avoid overlapping with buttons */
+            margin: 70px 0 2rem 0;
             color: #00205B;
             font-size: 2rem;
             font-weight: bold;
@@ -497,7 +487,6 @@
             border-radius: 0.75rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        /* NEW: Action button styles for save and email */
         .action-buttons {
             display: flex;
             gap: 0.75rem;
@@ -518,7 +507,23 @@
         .button-email:hover {
             background: #059669;
         }
-        /* Responsive Adjustments */
+        .key-points {
+            background: #f0f8ff;
+            border-left: 4px solid #00205B;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+        .key-points h4 {
+            color: #00205B;
+            margin-bottom: 0.5rem;
+        }
+        .key-points ul {
+            padding-left: 1.5rem;
+        }
+        .key-points li {
+            margin-bottom: 0.5rem;
+        }
         @media (max-width: 1024px) {
             .container {
                 flex-direction: column;
@@ -549,7 +554,7 @@
                 font-size: 0.85rem;
             }
             .page-title {
-                margin-top: 60px; /* Make space for the buttons */
+                margin-top: 60px;
                 font-size: 1.5rem;
             }
         }
@@ -597,17 +602,12 @@
     </style>
 </head>
 <body>
-    <!-- Button Container for perfect alignment -->
     <div class="button-container">
-        <!-- NEW: Enhanced Glowing Session Button (Fixed at Left) -->
-        <div class="session-btn">ALL 125_Session 2_Week 6</div>
-        <!-- Enhanced Glowing Home Button (Fixed at Right) -->
+        <div class="session-btn">ALL 125_Session 1_Week 7</div>
         <a href="https://oeybers-cpu.github.io/a_lit_models/" class="home-btn">Academic Literacy Home</a>
     </div>
-    <!-- Page Title to replace the removed header -->
     <h1 class="page-title">Assignment 2: Reading Reflection - Introduction to Decoloniality</h1>
     <div class="container">
-        <!-- Left Navigation Column -->
         <div class="left-column">
             <h2 class="nav-title">Assignment 2 Navigation</h2>
             <div class="nav-links">
@@ -637,9 +637,7 @@
                 </button>
             </div>
         </div>
-        <!-- Main Content Area -->
         <div class="main-content">
-            <!-- Session Outcomes Tab -->
             <div id="session-outcomes" class="tab-content active">
                 <div class="card">
                     <div class="card-header">
@@ -664,7 +662,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Instructions Tab -->
             <div id="instructions" class="tab-content">
                 <div class="card">
                     <div class="card-header">
@@ -718,83 +715,62 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="article-link-box">
+                            <h4>Full Assignment Details:</h4>
+                            <a href="https://clickup.up.ac.za/ultra/courses/_181354_1/outline/assessment/test/_4563121_1?courseId=_181354_1&gradeitemView=details" class="article-link-button" target="_blank">
+                                <span class="icon">📰</span>
+                                <span>ClickUP Assignment Instructions</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- Decoloniality Concept Tab -->
             <div id="decoloniality-concept" class="tab-content">
                 <div class="card">
                     <div class="card-header">
                         <h2 class="card-title">Understanding Decoloniality</h2>
-                        <p class="card-description">Critical reading activity based on "Decolonising Education in Africa"</p>
+                        <p class="card-description">Key principles and definitions from the reading</p>
                     </div>
                     <div class="card-content space-y-6">
                         <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-semibold text-gray-800" style="margin-bottom: 0.5rem;">Article Summary</h3>
+                            <h3 class="font-semibold text-gray-800" style="margin-bottom: 0.5rem;">Core Principles</h3>
                             <p class="text-gray-600" style="margin-bottom: 1rem;">
-                                This article explores the complex concept of decoloniality, particularly in the context of African education. It distinguishes decolonization from reverse colonialism, examines how colonialism entrenched conditions of injustice (coloniality of being, knowledge, and power), and discusses what decolonizing African education means in practice.
+                                Based on "Decolonising Education in Africa: What does it mean" by Ndlovu-Gatsheni (2022), these are the key principles of decoloniality:
                             </p>
+                            
+                            <div class="key-points">
+                                <h4>Key Principles of Decoloniality:</h4>
+                                <ul>
+                                    <li>Decoloniality is not reverse colonialism or revenge against former colonizers</li>
+                                    <li>It seeks to rehumanise both those who were dehumanised and those who participated in dehumanisation</li>
+                                    <li>It involves pluriversalising knowledge - recognising all humans as knowledge producers</li>
+                                    <li>It requires deracialising power structures that perpetuate colonial hierarchies</li>
+                                    <li>It focuses on justice rather than vengeance, aiming to build humane societies</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="key-points">
+                                <h4>Three Forms of Coloniality:</h4>
+                                <ul>
+                                    <li><strong>Coloniality of Being:</strong> Doubting the humanity of colonised peoples and consigning them to subhuman conditions</li>
+                                    <li><strong>Coloniality of Knowledge:</strong> Universalising Western knowledge while peripheralising Global South knowledge systems</li>
+                                    <li><strong>Coloniality of Power:</strong> Creating racial categories and hierarchising humanity based on skin colour</li>
+                                    <li>These forms interconnect to create systemic injustice that persists beyond formal colonialism</li>
+                                    <li>Decolonisation requires dismantling these structures in education and society</li>
+                                </ul>
+                            </div>
+                            
                             <div class="article-link-box">
-                                <h4>Read the Full Article:</h4>
-                                <a href="https://www.ufs.ac.za/docs/librariesprovider43/international-affairs/decolonising-african-education.fv.pdf" class="article-link-button" target="_blank">
-                                    <span class="icon">📰</span>
-                                    <span>Decolonising Education in Africa: What does it mean</span>
+                                <h4>Return to Main Assignment Page:</h4>
+                                <a href="#" class="article-link-button" onclick="showTab('session-outcomes'); return false;">
+                                    <span class="icon">🏠</span>
+                                    <span>Back to Assignment 2</span>
                                 </a>
                             </div>
-                            <div class="blockquote">
-                                "To decolonize is not to erase the history of colonialism or to, in some radical way, reclaim the Africa that was, before the colonial encounter." - Article Author
-                            </div>
-                        </div>
-                        <div id="dc-questions">
-                            <h3 class="text-lg font-semibold text-gray-800">Analytical Questions</h3>
-                            <div class="question-card">
-                                <h4 class="question-title">1. Who is the intended audience of this article? Identify specific language, examples, or arguments that suggest who the author is addressing.</h4>
-                                <textarea class="textarea" placeholder="Write your analysis here..."></textarea>
-                            </div>
-                            <div class="question-card">
-                                <h4 class="question-title">2. Based on your reading of the text, how would you define 'decoloniality' in 2-3 sentences? Be sure to incorporate key concepts from the article.</h4>
-                                <textarea class="textarea" placeholder="Write your definition here..."></textarea>
-                            </div>
-                            <div class="question-card">
-                                <h4 class="question-title">3. Analyze how the author uses the Stellenbosch University incident to develop their argument about decoloniality. What specific point is the author making through this example?</h4>
-                                <textarea class="textarea" placeholder="Write your analysis here..."></textarea>
-                            </div>
-                            <div class="question-card">
-                                <h4 class="question-title">4. Examine the author's discussion of the three forms of coloniality (being, knowledge, power). How do these concepts interconnect to form a comprehensive understanding of colonial impact?</h4>
-                                <textarea class="textarea" placeholder="Write your analysis here..."></textarea>
-                            </div>
-                            <div class="question-card">
-                                <h4 class="question-title">5. How does the author differentiate between different approaches to decolonization (healing vs. revenge)? What implications does this distinction have for educational transformation?</h4>
-                                <textarea class="textarea" placeholder="Write your analysis here..."></textarea>
-                            </div>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="button button-primary copy-button" onclick="copyAllResponses('decoloniality-concept')">
-                                <span>📋</span>
-                                <span>Copy All Responses</span>
-                            </button>
-                            <button class="button button-secondary" onclick="saveResponsesAsFile('decoloniality-concept')">
-                                <span>💾</span>
-                                <span>Save as Text File</span>
-                            </button>
-                            <button class="button button-email" onclick="emailResponses('decoloniality-concept')">
-                                <span>✉️</span>
-                                <span>Email My Responses</span>
-                            </button>
-                        </div>
-                        <div class="tips-container">
-                            <h3>Key Tips for Your Analysis</h3>
-                            <ul class="tips-list">
-                                <li>Pay attention to how the author constructs definitions and arguments</li>
-                                <li>Consider how examples like the Stellenbosch incident support broader theoretical points</li>
-                                <li>Think about the relationship between personal identity and larger social structures</li>
-                                <li>Reflect on how disciplinary perspectives might influence your understanding</li>
-                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Critical Reading Tab -->
             <div id="critical-reading" class="tab-content">
                 <div class="card">
                     <div class="card-header">
@@ -830,7 +806,7 @@
                                 <textarea class="textarea" placeholder="Write your reflection here..."></textarea>
                             </div>
                             <div class="question-card">
-                                <h4 class="question-title">4. How does your academic discipline approach questions of knowledge production, power, and social justice? In what ways might a decolonial perspective enhance or challenge disciplinary conventions in your field?</h4>
+                                <h4 class="question-title">4. How does your academic discipline or field of study approach questions of knowledge production, power, and social justice? In what ways might a decolonial perspective enhance or challenge disciplinary conventions in your field?</h4>
                                 <textarea class="textarea" placeholder="Write your reflection here..."></textarea>
                             </div>
                             <div class="question-card">
@@ -855,7 +831,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Session Reflection Tab -->
             <div id="session-reflection" class="tab-content">
                 <div class="card">
                     <div class="card-header">
@@ -896,7 +871,6 @@
                     </div>
                 </div>
             </div>
-            <!-- GenAI Integration Tab -->
             <div id="genai-integration" class="tab-content">
                 <div class="card">
                     <div class="card-header">
@@ -930,7 +904,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Navigation Buttons -->
             <div class="navigation-buttons">
                 <button class="button button-outline" onclick="previousTab()">
                     <span>← Previous</span>
@@ -941,7 +914,6 @@
             </div>
         </div>
     </div>
-    <!-- Footer - Counter Removed -->
     <footer>
         <p>Academic Literacy Assignment 2 - Reading Reflection on Decoloniality</p>
     </footer>
@@ -969,7 +941,6 @@
                 showTab(tabs[currentIndex + 1]);
             }
         }
-        // ENHANCED: Copy all responses with better formatting
         function copyAllResponses(tabId) {
             const textareas = document.querySelectorAll(`#${tabId} .textarea`);
             if (textareas.length === 0) {
@@ -1002,7 +973,6 @@ You can now paste them into a document or email.");
                 alert("Copy failed. Please try again or manually select and copy your responses.");
             });
         }
-        // NEW: Save responses as a text file
         function saveResponsesAsFile(tabId) {
             const textareas = document.querySelectorAll(`#${tabId} .textarea`);
             if (textareas.length === 0 || ![...textareas].some(ta => ta.value.trim() !== '')) {
@@ -1029,26 +999,19 @@ You can now paste them into a document or email.");
             });
             allResponses += "
 This document was generated from the Academic Literacy Assignment 2 web tool.";
-            // Create a Blob with the text content
             const blob = new Blob([allResponses], { type: 'text/plain' });
-            // Create a link element
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
-            // Set the download filename with date
             const dateStr = new Date().toISOString().slice(0, 10);
             const sectionName = tabId.replace('-', '_');
             link.download = `assignment2_${sectionName}_responses_${dateStr}.txt`;
-            // Append to the body
             document.body.appendChild(link);
-            // Programmatically click the link to trigger download
             link.click();
-            // Clean up and remove the link
             URL.revokeObjectURL(link.href);
             document.body.removeChild(link);
             alert(`Responses saved as ${link.download}!
 Check your Downloads folder.`);
         }
-        // NEW: Email responses using mailto protocol
         function emailResponses(tabId) {
             const textareas = document.querySelectorAll(`#${tabId} .textarea`);
             if (textareas.length === 0 || ![...textareas].some(ta => ta.value.trim() !== '')) {
@@ -1062,7 +1025,7 @@ Check your Downloads folder.`);
             emailBody += `Section: ${document.querySelector(`#${tabId} .card-title`).textContent}
 `;
             emailBody += `Date: ${new Date().toLocaleDateString()}
-`;
+";
             textareas.forEach((textarea, index) => {
                 const question = textarea.closest('.question-card').querySelector('.question-title').textContent;
                 const response = textarea.value || "(No response)";
@@ -1075,18 +1038,16 @@ Check your Downloads folder.`);
             });
             emailBody += "
 This email was generated from the Academic Literacy Assignment 2 web tool.";
-            // Format the body for mailto (replace newlines with %0D%0A)
             const mailtoBody = encodeURIComponent(emailBody);
-            // Create mailto link with subject and body
             const subject = "My Academic Literacy Assignment 2 Responses on Decoloniality";
             const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${mailtoBody}`;
-            // Open email client
             window.location.href = mailtoLink;
         }
-        // Initialize active tab
         document.addEventListener('DOMContentLoaded', () => {
             showTab('session-outcomes');
         });
     </script>
 </body>
 </html>
+5. **Responsive Design**: Maintained all responsive features
+6. **Navigation**: Kept the tab-based navigation system with smooth transitions
