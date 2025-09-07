@@ -66,6 +66,7 @@
             transition: all 0.2s;
             text-align: left;
             width: 100%;
+            text-decoration: none; /* Remove default link underline */
         }
         .nav-button:hover {
             background: rgba(255, 255, 255, 0.2);
@@ -611,30 +612,30 @@
         <div class="left-column">
             <h2 class="nav-title">Assignment 2 Navigation</h2>
             <div class="nav-links">
-                <button class="nav-button active" onclick="showTab('session-outcomes')">
+                <a href="#" class="nav-button active" onclick="showTab('session-outcomes'); return false;">
                     <span>📌</span>
                     <span>Session Outcomes</span>
-                </button>
-                <button class="nav-button" onclick="showTab('instructions')">
+                </a>
+                <a href="#" class="nav-button" onclick="showTab('instructions'); return false;">
                     <span>📖</span>
                     <span>Instructions</span>
-                </button>
-                <button class="nav-button" onclick="showTab('decoloniality-concept')">
+                </a>
+                <a href="#" class="nav-button" onclick="showTab('decoloniality-concept'); return false;">
                     <span>👥</span>
                     <span>Decoloniality Concept</span>
-                </button>
-                <button class="nav-button" onclick="showTab('critical-reading')">
+                </a>
+                <a href="#" class="nav-button" onclick="showTab('critical-reading'); return false;">
                     <span>🔍</span>
                     <span>Critical Reading</span>
-                </button>
-                <button class="nav-button" onclick="showTab('session-reflection')">
+                </a>
+                <a href="#" class="nav-button" onclick="showTab('session-reflection'); return false;">
                     <span>🧠</span>
                     <span>Session Reflection</span>
-                </button>
-                <button class="nav-button" onclick="showTab('genai-integration')">
+                </a>
+                <a href="#" class="nav-button" onclick="showTab('genai-integration'); return false;">
                     <span>🤖</span>
                     <span>GenAI Integration</span>
-                </button>
+                </a>
             </div>
         </div>
         <div class="main-content">
@@ -1049,5 +1050,4 @@ This email was generated from the Academic Literacy Assignment 2 web tool.";
     </script>
 </body>
 </html>
-5. **Responsive Design**: Maintained all responsive features
-6. **Navigation**: Kept the tab-based navigation system with smooth transitions
+- All other navigation functionality remains intact
