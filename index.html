@@ -625,7 +625,8 @@
                     <span>👥</span>
                     <span>Decoloniality Concept</span>
                 </a>
-                <a href="#" class="nav-button" onclick="showTab('critical-reading'); return false;">
+                <!-- Updated Critical Reading Tab Link -->
+                <a href="https://oeybers-cpu.github.io/all125_wk7_s1/" class="nav-button" target="_blank">
                     <span>🔍</span>
                     <span>Critical Reading</span>
                 </a>
@@ -711,66 +712,7 @@
                     </div>
                 </div>
             </div>
-            <div id="critical-reading" class="tab-content">
-                <div class="card">
-                    <div class="card-header">
-                        <h2 class="card-title">Critical Reading Reflection</h2>
-                        <p class="card-description">Reflect on decoloniality, positionality, and academic discipline</p>
-                    </div>
-                    <div class="card-content space-y-6">
-                        <div class="bg-gray-50 p-4 rounded-lg">
-                            <h3 class="font-semibold text-gray-800" style="margin-bottom: 0.5rem;">Context</h3>
-                            <p class="text-gray-600" style="margin-bottom: 1rem;">
-                                This section invites you to reflect on your own positionality in relation to decoloniality and consider how the concepts from the article connect to your academic discipline and personal experiences.
-                            </p>
-                            <div class="article-link-box">
-                                <h4>Re-read the Article:</h4>
-                                <a href="https://www.ufs.ac.za/docs/librariesprovider43/international-affairs/decolonising-african-education.fv.pdf" class="article-link-button" target="_blank">
-                                    <span>📰</span>
-                                    <span>Decolonising Education in Africa: What does it mean</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div id="cr-questions">
-                            <h3 class="text-lg font-semibold text-gray-800">Reflection Questions</h3>
-                            <div class="question-card">
-                                <h4 class="question-title">1. How does your own background, identity, and educational experiences shape your understanding of decoloniality? Consider your positionality in relation to questions of knowledge, power, and identity discussed in the article.</h4>
-                                <textarea class="textarea" placeholder="Write your reflection here..."></textarea>
-                            </div>
-                            <div class="question-card">
-                                <h4 class="question-title">2. Reflect on the concept of "coloniality of knowledge" as discussed in the article. How does this concept challenge or confirm your previous understanding of what counts as valid knowledge in academic settings?</h4>
-                                <textarea class="textarea" placeholder="Write your reflection here..."></textarea>
-                            </div>
-                            <div class="question-card">
-                                <h4 class="question-title">3. The article discusses the importance of "re-humanising" education. What does this mean to you, and how might it be practically implemented in educational contexts you're familiar with?</h4>
-                                <textarea class="textarea" placeholder="Write your reflection here..."></textarea>
-                            </div>
-                            <div class="question-card">
-                                <h4 class="question-title">4. How does your academic discipline or field of study approach questions of knowledge production, power, and social justice? In what ways might a decolonial perspective enhance or challenge disciplinary conventions in your field?</h4>
-                                <textarea class="textarea" placeholder="Write your reflection here..."></textarea>
-                            </div>
-                            <div class="question-card">
-                                <h4 class="question-title">5. The author argues that "decolonization is not a vengeful project." What are your thoughts on this perspective? How might this approach influence efforts to create more equitable educational environments?</h4>
-                                <textarea class="textarea" placeholder="Write your reflection here..."></textarea>
-                            </div>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="button button-primary copy-button" onclick="copyAllResponses('critical-reading')">
-                                <span>📋</span>
-                                <span>Copy All Responses</span>
-                            </button>
-                            <button class="button button-secondary" onclick="saveResponsesAsFile('critical-reading')">
-                                <span>💾</span>
-                                <span>Save as Text File</span>
-                            </button>
-                            <button class="button button-email" onclick="emailResponses('critical-reading')">
-                                <span>✉️</span>
-                                <span>Email My Responses</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+             <!-- Session Reflection Tab -->
             <div id="session-reflection" class="tab-content">
                 <div class="card">
                     <div class="card-header">
@@ -859,19 +801,32 @@
     </footer>
     <script>
         let currentTab = 'session-outcomes';
-        const tabs = ['session-outcomes', 'decoloniality-concept', 'critical-reading', 'session-reflection', 'genai-integration']; // Removed 'instructions' as it's now an external link
+        // Updated tabs array - removed 'instructions' and 'critical-reading' as they are now external links
+        const tabs = ['session-outcomes', 'decoloniality-concept', 'session-reflection', 'genai-integration'];
         function showTab(tabName) {
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
             document.querySelectorAll('.nav-button').forEach(button => button.classList.remove('active'));
-            document.getElementById(tabName).classList.add('active');
+            // Try to find and activate the internal tab content
+            const tabElement = document.getElementById(tabName);
+            if (tabElement) {
+                tabElement.classList.add('active');
+            }
             // Find the corresponding nav button and activate it
             const activeButton = [...document.querySelectorAll('.nav-button')].find(btn => {
-                // For external links, check the href
-                if (btn.tagName === 'A' && btn.getAttribute('href') && btn.getAttribute('href').includes('instructions')) {
-                    return tabName === 'instructions';
+                // Check if it's the specific tab we're activating
+                if (tabName === 'session-outcomes' && btn.textContent.includes('Session Outcomes')) {
+                    return true;
                 }
-                // For internal tabs, check the text content
-                return btn.textContent.includes(tabName.replace('-', ' '));
+                if (tabName === 'decoloniality-concept' && btn.textContent.includes('Decoloniality Concept')) {
+                    return true;
+                }
+                if (tabName === 'session-reflection' && btn.textContent.includes('Session Reflection')) {
+                    return true;
+                }
+                if (tabName === 'genai-integration' && btn.textContent.includes('GenAI Integration')) {
+                    return true;
+                }
+                return false;
             });
 
             if (activeButton) activeButton.classList.add('active');
@@ -890,81 +845,91 @@
                 showTab(tabs[currentIndex + 1]);
             }
         }
-        function copyAllResponses(tabId) {
-            const textareas = document.querySelectorAll(`#${tabId} .textarea`);
-            if (textareas.length === 0) {
-                alert("No responses to copy! This section doesn't have text areas for responses.");
-                return;
-            }
-            let allResponses = "Academic Literacy Assignment 2: Reading Reflection on Decoloniality\n";
-            allResponses += "===============================================\n";
-            allResponses += `Section: ${document.querySelector(`#${tabId} .card-title`).textContent}\n`;
-            allResponses += `Date: ${new Date().toLocaleDateString()}\n`;
+         // Generic function to collect responses from any section
+        function collectResponses(sectionId) {
+            const textareas = document.querySelectorAll(`#${sectionId} .textarea`);
+            const responses = [];
             textareas.forEach((textarea, index) => {
-                const question = textarea.closest('.question-card').querySelector('.question-title').textContent;
-                const response = textarea.value || "(No response)";
-                allResponses += `Question ${index + 1}: ${question}\n`;
-                allResponses += `Response: ${response}\n`;
-                allResponses += "----------------------------------------\n";
+                const questionElement = textarea.closest('.question-card')?.querySelector('.question-title');
+                const questionText = questionElement ? questionElement.textContent : `Question ${index + 1}`;
+                responses.push({
+                    question: questionText,
+                    response: textarea.value || "(No response)"
+                });
             });
-            navigator.clipboard.writeText(allResponses).then(() => {
+            return responses;
+        }
+
+        // Generic function to format text content
+        function formatTextContent(sectionTitle) {
+            const responses = collectResponses(currentTab);
+            const date = new Date().toLocaleDateString();
+            let content = `Academic Literacy Assignment 2: Reading Reflection on Decoloniality\n`;
+            content += `===============================================\n\n`;
+            content += `Section: ${sectionTitle}\n`;
+            content += `Date: ${date}\n\n`;
+            
+            responses.forEach((item, index) => {
+                content += `${item.question}\n`;
+                content += `Response: ${item.response}\n\n`;
+            });
+            
+            content += `This document was generated from the Academic Literacy Assignment 2 web tool.`;
+            return content;
+        }
+
+        // Generic function to copy responses
+        function copyAllResponses(sectionId) {
+            const sectionTitle = document.querySelector(`#${sectionId} .card-title`)?.textContent || "Assignment Section";
+            const content = formatTextContent(sectionTitle);
+            
+            navigator.clipboard.writeText(content).then(() => {
                 alert("All responses copied to clipboard!\nYou can now paste them into a document or email.");
             }).catch(err => {
                 console.error('Copy failed:', err);
                 alert("Copy failed. Please try again or manually select and copy your responses.");
             });
         }
-        function saveResponsesAsFile(tabId) {
-            const textareas = document.querySelectorAll(`#${tabId} .textarea`);
+
+        // Generic function to save responses as file
+        function saveResponsesAsFile(sectionId) {
+            const textareas = document.querySelectorAll(`#${sectionId} .textarea`);
             if (textareas.length === 0 || ![...textareas].some(ta => ta.value.trim() !== '')) {
                 alert("No responses to save! Please enter your responses before saving.");
                 return;
             }
-            let allResponses = "Academic Literacy Assignment 2: Reading Reflection on Decoloniality\n";
-            allResponses += "===============================================\n";
-            allResponses += `Section: ${document.querySelector(`#${tabId} .card-title`).textContent}\n`;
-            allResponses += `Date: ${new Date().toLocaleDateString()}\n`;
-            textareas.forEach((textarea, index) => {
-                const question = textarea.closest('.question-card').querySelector('.question-title').textContent;
-                const response = textarea.value || "(No response)";
-                allResponses += `Question ${index + 1}: ${question}\n`;
-                allResponses += `Response: ${response}\n`;
-                allResponses += "----------------------------------------\n";
-            });
-            allResponses += "\nThis document was generated from the Academic Literacy Assignment 2 web tool.";
-            const blob = new Blob([allResponses], { type: 'text/plain' });
+            
+            const sectionTitle = document.querySelector(`#${sectionId} .card-title`)?.textContent || "Assignment_Section";
+            const content = formatTextContent(sectionTitle);
+            const blob = new Blob([content], { type: 'text/plain' });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
             const dateStr = new Date().toISOString().slice(0, 10);
-            const sectionName = tabId.replace('-', '_');
-            link.download = `assignment2_${sectionName}_responses_${dateStr}.txt`;
+            // Create a cleaner filename
+            const cleanSectionName = sectionTitle.replace(/[^a-zA-Z0-9]/g, '_').toLowerCase();
+            link.download = `assignment2_${cleanSectionName}_responses_${dateStr}.txt`;
             document.body.appendChild(link);
             link.click();
             URL.revokeObjectURL(link.href);
             document.body.removeChild(link);
-            alert(`Responses saved as ${link.download}!\nCheck your Downloads folder.`);
+            alert(`Responses saved as assignment2_${cleanSectionName}_responses_${dateStr}.txt!\nCheck your Downloads folder.`);
         }
-        function emailResponses(tabId) {
-            const textareas = document.querySelectorAll(`#${tabId} .textarea`);
+
+        // Generic function to email responses
+        function emailResponses(sectionId) {
+            const textareas = document.querySelectorAll(`#${sectionId} .textarea`);
             if (textareas.length === 0 || ![...textareas].some(ta => ta.value.trim() !== '')) {
                 alert("No responses to email! Please enter your responses before emailing.");
                 return;
             }
-            let emailBody = "Academic Literacy Assignment 2: Reading Reflection on Decoloniality\n";
-            emailBody += "===============================================\n";
-            emailBody += `Section: ${document.querySelector(`#${tabId} .card-title`).textContent}\n`;
-            emailBody += `Date: ${new Date().toLocaleDateString()}\n";
-            textareas.forEach((textarea, index) => {
-                const question = textarea.closest('.question-card').querySelector('.question-title').textContent;
-                const response = textarea.value || "(No response)";
-                emailBody += `Question ${index + 1}: ${question}\n`;
-                emailBody += `Response: ${response}\n`;
-                emailBody += "----------------------------------------\n";
-            });
-            emailBody += "\nThis email was generated from the Academic Literacy Assignment 2 web tool.";
-            const mailtoBody = encodeURIComponent(emailBody);
-            const subject = "My Academic Literacy Assignment 2 Responses on Decoloniality";
-            const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${mailtoBody}`;
+            
+            const sectionTitle = document.querySelector(`#${sectionId} .card-title`)?.textContent || "Assignment Section";
+            const content = formatTextContent(sectionTitle);
+            
+            // Format for email body
+            const emailBody = encodeURIComponent(content);
+            const subject = encodeURIComponent(`My Academic Literacy Assignment 2 Responses - ${sectionTitle}`);
+            const mailtoLink = `mailto:?subject=${subject}&body=${emailBody}`;
             window.location.href = mailtoLink;
         }
         document.addEventListener('DOMContentLoaded', () => {
